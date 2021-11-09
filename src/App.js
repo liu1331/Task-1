@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Board from "./components/Board";
+import { useState, useEffect } from "react";
+import { initialState, combo } from "./constants";
 
 function App() {
+  const [state, setState] = useState(initialState);
+  useEffect(() => {
+    for (let i = 0; i < combo.length; i++) {
+      let [a, b, c] = combo[i];
+      if (
+        state.board[a] &&
+        state.board[b] === state.board[a] &&
+        state.board[c] === state.board[a]
+      ) {
+        setState((prevState) => ({ ...prevState, isWin: true }));
+      }
+    }
+    if (state.board.includes(null) === false) {
+      setState((prevState) => ({ ...prevState, isDraw: true }));
+    }
+  }, [state.board]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Board setState={setState} state={state} />
     </div>
   );
 }
