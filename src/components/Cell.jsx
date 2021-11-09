@@ -1,15 +1,19 @@
 import React from "react";
 
 const Cell = (props) => {
-  const { state, value, player, setState, index } = props;
+  const { state, value, currPlayer, setState, index } = props;
 
   function clickOnCell(e) {
     const newState = [...state.board];
-    newState[index] = player ? "O" : "X";
+    if (newState[index]) {
+      return;
+    }
+    newState[index] = currPlayer === "O" ? "O" : "X";
+
     setState({
       ...state,
       board: [...newState],
-      nextPlayer: !state.nextPlayer,
+      currPlayer: currPlayer === "X" ? "O" : "X",
     });
   }
 

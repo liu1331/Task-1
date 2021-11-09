@@ -7,12 +7,12 @@ const Board = (props) => {
   return (
     <div className="container ">
       <WindowResult
-        player={props.state.nextPlayer}
+        currPlayer={props.state.currPlayer}
         isWin={props.state.isWin}
         isDraw={props.state.isDraw}
         setState={props.setState}
       />
-      <PlayerMove player={props.state.nextPlayer} />
+      <PlayerMove currPlayer={props.state.currPlayer} />
       <div className="board">
         {props.state.board.map((c, index) => (
           <Cell
@@ -21,7 +21,7 @@ const Board = (props) => {
             value={c}
             state={props.state}
             setState={props.setState}
-            player={props.state.nextPlayer}
+            currPlayer={props.state.currPlayer}
           />
         ))}
       </div>

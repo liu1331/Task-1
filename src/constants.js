@@ -1,6 +1,6 @@
 export const initialState = {
   board: [null, null, null, null, null, null, null, null, null],
-  nextPlayer: false,
+  currPlayer: "X",
   isWin: false,
   isDraw: false,
 };

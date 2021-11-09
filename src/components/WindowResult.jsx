@@ -1,7 +1,5 @@
 const WindowResult = (props) => {
-  console.log("window res render");
   const { setState } = props;
-
   return (
     <div
       className={
@@ -13,7 +11,7 @@ const WindowResult = (props) => {
           {props.isDraw ? (
             <p>Draw</p>
           ) : (
-            <p>Player {props.player ? "1" : "2"} Win</p>
+            <p>Player {props.currPlayer ? "1" : "2"} Win</p>
           )}
         </div>
         <div className="windowResult-btn">
@@ -23,7 +21,7 @@ const WindowResult = (props) => {
                 board: Array(9).fill(null),
                 isWin: false,
                 isDraw: false,
-                nextPlayer: false,
+                currPlayer: "X",
               }))
             }
           >

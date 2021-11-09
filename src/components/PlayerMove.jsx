@@ -11,7 +11,7 @@ const PlayerMove = (props) => {
         <div
           className={
             "bounce bouncePlayerMove " +
-            (props.nextPlayer ? "bounceMoveO" : "bounceMoveX")
+            (props.currPlayer === "X" ? "bounceMoveO" : "bounceMoveX")
           }
         ></div>
       </div>
