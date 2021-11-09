@@ -11,7 +11,7 @@ const WindowResult = (props) => {
           {props.isDraw ? (
             <p>Draw</p>
           ) : (
-            <p>Player {props.currPlayer ? "1" : "2"} Win</p>
+            <p>Player {props.currPlayer === "O" ? "1" : "2"} Win</p>
           )}
         </div>
         <div className="windowResult-btn">
